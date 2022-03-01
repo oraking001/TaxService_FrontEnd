@@ -3,7 +3,7 @@ import axios from "axios";
 // import { GET_NEWS } from '../actions/types';
 
 const api = axios.create({
-  baseURL: "http://54.196.39.16:5000/api",
+  baseURL: "https://taxserver-backend.herokuapp.com/api",
   headers: {
     "Content-Type": "application/json",
   },
