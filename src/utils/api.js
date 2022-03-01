@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 // import store from '../store';
 // import { GET_NEWS } from '../actions/types';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: "http://54.196.39.16:5000/api",
   headers: {
-    'Content-Type': 'application/json'
-  }
+    "Content-Type": "application/json",
+  },
 });
 /**
  intercept any error responses from the api
@@ -17,8 +17,8 @@ const api = axios.create({
 **/
 
 api.interceptors.response.use(
-  res => res,
-  err => {
+  (res) => res,
+  (err) => {
     if (err.response.status === 401) {
       // store.dispatch({ type: LOGOUT });
     }
