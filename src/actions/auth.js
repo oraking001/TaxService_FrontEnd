@@ -1,6 +1,6 @@
 import api from "../utils/api";
 import { toast } from "react-toastify";
-
+import axios from "axios";
 // Load User
 export const loadUser = () => async (dispatch) => {
   try {
@@ -51,8 +51,11 @@ export const register = (formData) => async (dispatch) => {
 
 // Login User
 export const login = (formData) => async (dispatch) => {
+  axios.headers["Content-Type"] = "application/json";
+  axios.baseURL = "https://taxserver-backend.herokuapp.com/api";
   try {
-    const res = await api.post("/auth/login", formData);
+    //const res = await api.post("/auth/login", formData);
+    const res = await axios.post("/auth/login", formData);
 
     dispatch({
       type: "LOGIN_SUCCESS",
